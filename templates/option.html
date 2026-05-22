@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Options</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            margin: 0;
+        }
+        .container {
+            display: flex;
+            gap: 20px;
+        }
+        .option {
+            width: 150px;
+            height: 200px;
+            background: white;
+            border-radius: 15px;
+            text-align: center;
+            padding: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .option:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        }
+        .option img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .option p {
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="option">
+            <a  class="nav-link" href="/encryption"><img src="{%static 'images/image.gif'%}" alt="Image Option">  </a>
+            <p>Image</p>
+        </div>
+        <div class="option">
+            <a  class="nav-link" href="/vencryption"><img src="{%static 'images/video-channel.gif'%}" alt="Video Option"></a>
+            <p>Video</p>
+        </div>
+        <div class="option">
+            <a  class="nav-link" href="/aencryption"><img src="{%static 'images/microphone.gif'%}" alt="Audio Option"></a>
+            <p>Audio</p>
+        </div>
+    </div>
+</body>
+</html>

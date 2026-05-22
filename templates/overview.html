@@ -1,0 +1,186 @@
+
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Steganography & AES Encryption</title>
+  <style>
+    /* Reset default styles */
+    * {
+      margin: 0;     
+      padding: 0;
+      box-sizing: border-box; }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.6;
+    }
+    
+    /* Header */
+    header {
+      background: #af704c;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    header h1 {
+      margin-bottom: 10px;
+    }
+    
+    nav ul {
+      list-style: none;
+      text-align: center;
+    }
+    
+    nav ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+    
+    nav ul li a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.2rem;
+      padding: 5px 10px;
+      transition: background 0.3s;
+    }
+    
+    nav ul li a:hover,
+    nav ul li a.active {
+      background-color: #367c39;
+      border-radius: 5px;
+    }
+    
+    /* Main Content */
+    main {
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    h2 {
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+    
+    h3 {
+      color: #367c39;
+      margin-top: 15px;
+    }
+    
+    p, ul {
+      margin-bottom: 15px;
+    }
+    
+    ul {
+      padding-left: 20px;
+    }
+    
+    /* Footer */
+    footer {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Image Steganography & AES Encryption</h1>
+    <nav>
+      <ul>
+        <li><a href="{% static 'about.html' %}">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="content">
+      <h2>Introduction</h2>
+      <p>
+        Image steganography and AES encryption are two powerful techniques used in the field of data security and digital communication. When combined, they provide a dual layer of protection: one method conceals the very existence of the message (steganography), while the other secures the message content (encryption). This integrated approach is particularly valuable in scenarios where both confidentiality and stealth are required.
+      </p>
+
+      <h2>Image Steganography</h2>
+      <h3>Definition and Principle</h3>
+      <p>
+        Image steganography is the practice of hiding secret information within a digital image in such a way that the alteration is imperceptible to the human eye. Unlike cryptography, which scrambles the content of a message, steganography conceals the existence of the message itself. Typically, the secret message is embedded in the least significant bits (LSBs) of the image pixels.
+      </p>
+
+      <h3>Techniques</h3>
+      <ul>
+        <li><strong>LSB Method:</strong> The least significant bit of each pixel’s value is modified to encode data while maintaining visual quality.</li>
+        <li><strong>Transform Domain Methods:</strong> These methods modify the image in a transform domain such as the Discrete Cosine Transform (DCT) or Discrete Wavelet Transform (DWT), providing robustness against compression.</li>
+      </ul>
+
+      <h3>Applications</h3>
+      <p>
+        Image steganography is used for covert communication, watermarking, digital rights management, and protecting intellectual property.
+      </p>
+
+      <h2>AES Encryption</h2>
+      <h3>Definition and Principle</h3>
+      <p>
+        The Advanced Encryption Standard (AES) is a symmetric encryption algorithm widely recognized for its security and efficiency. AES converts plain text into cipher text using a secret key, ensuring that only authorized parties can decrypt it.
+      </p>
+
+      <h3>AES Characteristics</h3>
+      <ul>
+        <li><strong>Symmetric Key Algorithm:</strong> The same key is used for both encryption and decryption.</li>
+        <li><strong>Block Cipher:</strong> AES processes data in fixed-size blocks (typically 128 bits).</li>
+        <li><strong>Security:</strong> AES is robust against most forms of cryptographic attack.</li>
+      </ul>
+
+      <h2>Combining Image Steganography and AES Encryption</h2>
+      <h3>Dual Layer Security</h3>
+      <p>
+        When these techniques are combined, the message is first encrypted using AES and then embedded into an image using steganographic techniques. This ensures that even if the stego image is intercepted, the attacker would need both the steganography method and the AES key to access the original message.
+      </p>
+
+      <h3>Workflow</h3>
+      <ul>
+        <li><strong>Encryption Phase:</strong> The original message is encrypted using AES and converted into binary.</li>
+        <li><strong>Embedding Phase:</strong> The binary data is embedded into the image using the LSB technique.</li>
+        <li><strong>Extraction & Decryption Phase:</strong> The hidden data is extracted and decrypted using the AES key.</li>
+      </ul>
+
+      <h3>Advantages</h3>
+      <ul>
+        <li><strong>Confidentiality:</strong> Even if the hidden message is discovered, it remains protected by AES encryption.</li>
+        <li><strong>Invisibility:</strong> The stego image does not arouse suspicion.</li>
+        <li><strong>Robustness:</strong> Dual protection ensures increased security.</li>
+      </ul>
+
+      <h3>Challenges</h3>             
+      <ul>
+        <li><strong>Key Management:</strong> Securely sharing and storing the AES key is critical.</li>
+        <li><strong>Capacity & Quality Trade-off:</strong> More data embedding can reduce image quality.</li>
+        <li><strong>Detection Methods:</strong> Advanced techniques can sometimes expose hidden messages.</li>
+      </ul>
+
+      <h2>Conclusion</h2>
+      <p>
+        The integration of image steganography with AES encryption ensures both data confidentiality and stealth. This approach is useful for secure communication, reducing the risk of unauthorized access and interception.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Secure Steganography Inc.</p>
+  </footer>
+
+</body>
+</html>
+{% endblock %}

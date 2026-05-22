@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Image Steganography and encryption using AES algorithm.</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/reset.css' %}">
+<link rel="stylesheet" type="text/css" media="screen" href="{% static 'css/style.css' %}">
+
+<!--[if lt IE 9]>
+<script src="js/html5.js"></script>
+<link rel="stylesheet" type="text/css" media="screen" href="css/ie.css">
+<![endif]-->
+</head>
+<body>
+<!--==============================header=================================-->
+<header>
+  <div class="main">
+    <div class="wrap">
+      <h1><a href="{% static 'index.html' %}"><img src="images/logo.png" alt=""></a></h1>
+      <div class="slogan"><b>Image Steganography and encryption using AES algorithm</b></div>
+      <div class="tooltips"> <a href="#"><img src="images/icon-1.png" alt=""></a><a href="#"><img src="images/icon-2.png" alt=""></a><a href="#"><img src="images/icon-3.png" alt=""></a> </div>
+    </div>
+    <div class="nav-shadow">
+      <div>
+        <nav>
+          <ul class="menu">
+            <li class="current"><a href="">Index</a></li>
+            <li><a href="about">About</a></li>
+            <li><a href="#">Hello {{user.username}}</a></li>
+            {% if user.is_authenticated %}
+            <li><a href="logout">logout</a></li>
+            <li class="nav-item">
+              <a class="nav-link" href="option">Stegano Hide</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="option2">Stegano Reveal</a>
+            </li>
+            {% else %}
+            <li><a href="register">Register</a></li>
+            <li><a href="login">Login</a></li>
+            {% endif %}
+            
+            <li><a href="contacts">Contacts</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  
+  <div class="header-content">
+    <div class="wrap main">
+      <div class="block-1"> <img src="" alt="" class="img-radius">
+        <div class="border-1">
+          <p class="color-1 p2">Project Overview</p>
+          <p>This project combines AES (Advanced Encryption Standard) encryption with image steganography to securely hide and transmit sensitive messages within images.</p>
+          <a href="overview" class="button top-1">Read More</a> </div>
+      </div>
+      <div class="block-1"> <img src="" alt="" class="img-radius">
+        <div class="border-1">
+          <p class="color-1 p2">Key Features</p>
+          <p>AES encryption <br></p> <p>Steganography<br></p> <p>Decryption and Extraction<br></p> 
+          <a href="key" class="button top-1">Read More</a> </div>
+      </div>
+      <div class="block-1"> <img src="" alt="" class="img-radius">
+        <div>
+          <p class="color-1 p2">Applications</p>
+          <p>Secure message transmission in sensitive communications.<br>
+            Prevent data leaks by hiding sensitive files within images.<br>
+            Use in cybersecurity & forensic applications for covert data exchange.<br></p>
+          <a href="application" class="button top-1">Read More</a> </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script src="{% static 'js/jquery-1.7.min.js' %}"></script>
+<script src="{% static 'js/jquery.easing.1.3.js' %}"></script>
+<script src="{% static 'js/FF-cash.js' %}"></script>
+<script src="{% static 'js/otp.js' %}"></script>
+
+
+{% block content %}
+{% endblock %}
+</body>
+</html>

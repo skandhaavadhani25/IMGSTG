@@ -1,0 +1,87 @@
+{% block content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Steganography & AES Encryption</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+        h1, h2 {
+            color: #333;
+        }
+        p {
+            color: #555;
+            line-height: 1.6;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Image Steganography and AES Encryption</h1>
+        <div class="section">
+            <h2>Image Steganography</h2>
+            <p><strong>Definition and Principle:</strong> Image steganography involves hiding secret data within a digital image such that the modification is imperceptible to the human eye. Unlike cryptography that disguises the content, steganography obscures the existence of the message.</p>
+            <h3>Techniques:</h3>
+            <p><strong>LSB (Least Significant Bit) Method:</strong> This common technique embeds data by altering the least significant bits of the pixel values. The modifications are so minimal that the overall visual appearance of the image is preserved.</p>
+            <p><strong>Transform Domain Techniques:</strong> Methods such as the Discrete Cosine Transform (DCT) or Discrete Wavelet Transform (DWT) alter the image in the frequency domain, providing better robustness against compression and noise.</p>
+            <h3>Applications:</h3>
+            <p>Image steganography is widely used for covert communications, digital watermarking, intellectual property protection, and secure data embedding.</p>
+        </div>
+        <div class="section">
+            <h2>AES Encryption</h2>
+            <p><strong>Definition and Principle:</strong> The Advanced Encryption Standard (AES) is a symmetric encryption algorithm that secures data by converting plain text into cipher text using a secret key. Only those with the correct key can decrypt the message, ensuring data confidentiality.</p>
+            <h3>Key Characteristics:</h3>
+            <ul>
+                <li><strong>Symmetric Key Algorithm:</strong> AES uses the same key for both encryption and decryption, necessitating secure key management.</li>
+                <li><strong>Block Cipher:</strong> It operates on fixed-size blocks (typically 128 bits) with key sizes of 128, 192, or 256 bits.</li>
+                <li><strong>High Security:</strong> AES is designed to resist various forms of cryptographic attacks.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Combining Image Steganography and AES Encryption</h2>
+            <p><strong>Dual Layer Security:</strong> By first encrypting a message using AES and then embedding the encrypted data into an image using steganographic techniques, the system provides two levels of protection.</p>
+            <h3>Workflow Overview:</h3>
+            <ul>
+                <li><strong>Encryption Phase:</strong> The original message is encrypted using AES, converting it into a cipher text.</li>
+                <li><strong>Embedding Phase:</strong> The binary stream is embedded into the image.</li>
+                <li><strong>Extraction and Decryption Phase:</strong> The hidden data is extracted and decrypted using the correct AES key.</li>
+            </ul>
+            <h3>Advantages:</h3>
+            <ul>
+                <li><strong>Enhanced Confidentiality:</strong> Even if hidden data is found, it remains encrypted.</li>
+                <li><strong>Stealth and Invisibility:</strong> The modified image appears identical to the original.</li>
+                <li><strong>Robustness Against Attacks:</strong> Both steganographic and cryptographic techniques need to be broken simultaneously.</li>
+            </ul>
+            <h3>Challenges:</h3>
+            <ul>
+                <li><strong>Key Management:</strong> Secure handling of the AES key is essential.</li>
+                <li><strong>Capacity vs. Image Quality:</strong> More embedded data may degrade the image.</li>
+                <li><strong>Detection Techniques:</strong> Advanced analysis can reveal anomalies.</li>
+            </ul>
+        </div>
+        <div class="section">
+            <h2>Conclusion</h2>
+            <p>The integration of image steganography with AES encryption offers a sophisticated means of secure communication. This approach achieves both data confidentiality and covert transmission, making it an effective tool in modern cybersecurity.</p>
+        </div>
+    </div>
+</body>
+</html>
+{% endblock %}
