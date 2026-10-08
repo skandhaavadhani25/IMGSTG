@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect
 from django.contrib.auth.models import User,auth 
 from django.http import HttpResponseRedirect
+from django.conf import settings
 import stepic
 from PIL import Image # importing the Image module from the PIL library.
 import io
@@ -181,8 +182,9 @@ def vencryption_view(request):
         password="qwertyuiopasdfghjklzxcvbnm"
         if 'video' in request.FILES:
             video_file = request.FILES['video']
-        #output_video = "C:/Users/Abhiram K R/Downloads/creatine_encrypted.avi"
-        output_video = r"C:\Users\Admin\Desktop\IMGSTG\encrypted_videos\encypt.avi"
+        output_dir = os.path.join(settings.BASE_DIR, 'encrypted_videos')
+        ensure_directory_exists(output_dir)
+        output_video = os.path.join(output_dir, 'encypt.avi')
         steganography = VideoSteganography()
         message1 = steganography.encrypt_into_video(video_file, output_video, text, password, frame_index=10)
         if message1==True:
@@ -505,12 +507,13 @@ class VideoSteganography:
             # Extract filename without extension
             filename_base = os.path.splitext(original_name)[0]
             
-            metadata_dir = r"C:\Users\Admin\Desktop\IMGSTG\encrypted_videos"
+            metadata_dir = os.path.join(settings.BASE_DIR, 'encrypted_videos')
             potential_metadata_paths = [
-            f"{metadata_dir}\encypt.avi.data",  # Direct path to the data file shown in screenshot
-            os.path.join(metadata_dir, f"{filename_base}.data"),
-            os.path.join(metadata_dir, f"encrypted_{filename_base}.data")
-        ]
+                os.path.join(metadata_dir, "encypt.avi.data"),
+                os.path.join(metadata_dir, f"{filename_base}.data"),
+                os.path.join(metadata_dir, f"encrypted_{filename_base}.data"),
+                r"C:\Users\Admin\Desktop\IMGSTG\encrypted_videos\encypt.avi.data",
+            ]
             
             # Try to find metadata file
             metadata_path = None
